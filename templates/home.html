@@ -59,9 +59,40 @@
       </div>
     </div>
 
-    <div class="container">
-        <img src="data/atlases.svg" alt="atlases" class="img-responsive" style="opacity:0.9;">
+
+    {{for loop, study_id in looper(sorted(thumbnails.keys()))}}
+    <div class="media">
+      <div class="media-left">
+        <a href="#">
+          <img class="media-object" src={{thumbnails[study_id]}} alt={{study_id}} height="128" width="128">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{study_id}}</h4>
+          text text
+      </div>
     </div>
+    {{endfor}}
+
+    <!-- <div class="container">
+    {{for loop, study_id in looper(sorted(thumbnails.keys()))}}
+    {{if loop.index % 3 == 0}}
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+            {{elif loop.index % 3 == 3}}
+            </div>
+        </div>
+            {{endif}}
+                <div class="thumbnail">
+                    <img src={{thumbnails[study_id]}} alt={{study_id}} class="img-responsive" style="opacity:0.9;">
+                        <div class="caption">
+                            <h3>{{study_id}}</h3>
+                            <p>blabla test</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                </div>
+    {{endfor}}
+    </div> -->
 
     </div><!-- /.container -->
 
