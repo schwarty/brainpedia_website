@@ -15,7 +15,8 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="default.css" rel="stylesheet">
+    <link href="css/default.css" rel="stylesheet">
+    <link href="css/callout.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -60,41 +61,31 @@
     </div>
 
 
-    {{for loop, study_id in looper(sorted(thumbnails.keys()))}}
-    <div class="media">
-      <div class="media-left">
-        <a href="#">
-          <img class="media-object" src={{thumbnails[study_id]}} alt={{study_id}} height="128" width="128">
-        </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">{{study_id}}</h4>
-          text text
+    {{for loop, study_id in looper(sorted(labels.keys()))}}
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+
+    <div class="bs-callout bs-callout-primary">
+      <h4>{{study_id}}</h4>
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object" src={{thumbnails[study_id]}} alt={{study_id}} height="128" width="128">
+          </a>
+        </div>
+        <div class="media-body">
+          {{for label in sorted(labels[study_id])}}
+            <span class="label label-default">{{label}}</span>
+          {{endfor}}
+        </div>
       </div>
     </div>
-    {{endfor}}
 
-    <!-- <div class="container">
-    {{for loop, study_id in looper(sorted(thumbnails.keys()))}}
-    {{if loop.index % 3 == 0}}
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-            {{elif loop.index % 3 == 3}}
-            </div>
-        </div>
-            {{endif}}
-                <div class="thumbnail">
-                    <img src={{thumbnails[study_id]}} alt={{study_id}} class="img-responsive" style="opacity:0.9;">
-                        <div class="caption">
-                            <h3>{{study_id}}</h3>
-                            <p>blabla test</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                        </div>
-                </div>
+    </div>
+    <div class="col-md-1"></div>
+    </div>
     {{endfor}}
-    </div> -->
-
-    </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
